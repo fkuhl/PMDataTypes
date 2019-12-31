@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Household: DataType {
-    var id: Id
-    var value: HouseholdValue
+public struct Household: DataType {
+    public var id: Id
+    public var value: HouseholdValue
 }
 
-struct HouseholdValue: ValueType {
-    var head: Id? //this would have to be an error
-    var spouse: Id?
-    var others: [Id]
-    var address: Id
+public struct HouseholdValue: ValueType {
+    public var head: Id? //this would have to be an error
+    public var spouse: Id?
+    public var others: [Id]
+    public var address: Id
 }
 

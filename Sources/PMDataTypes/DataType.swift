@@ -30,21 +30,21 @@ public let jsonEncoder: JSONEncoder = {
 }()
 
 
-typealias Id = String
+public typealias Id = String
 
-protocol ValueType: Encodable, Decodable { }
+public protocol ValueType: Encodable, Decodable { }
 
 extension ValueType {
-    func asJSONData() -> Data  {
+    public func asJSONData() -> Data  {
         return try! jsonEncoder.encode(self)
     }
 }
 
-protocol DataType: Encodable, Decodable {
+public protocol DataType: Encodable, Decodable {
     associatedtype V: ValueType
     
     var id: Id { get set }
     var value: V { get set }
     
-    init(id: Id, value: V)
+    //init(id: Id, value: V)
 }

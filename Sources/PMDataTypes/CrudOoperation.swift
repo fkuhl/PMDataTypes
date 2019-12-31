@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CrudOperation: String {
+public enum CrudOperation: String {
     case create
     case read
     case readAll

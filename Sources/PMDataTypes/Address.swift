@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Address: DataType {
-    var id: Id
-    var value: AddressValue
+public struct Address: DataType {
+    public var id: Id
+    public var value: AddressValue
 }
 
-struct AddressValue: ValueType {
-    var address: String
-    var address2: String?
-    var city: String
-    var state: String?
-    var postalCode: String
-    var country: String?
-    var eMail: String?
-    var homePhone: String?
+public struct AddressValue: ValueType {
+    public var address: String
+    public var address2: String?
+    public var city: String
+    public var state: String?
+    public var postalCode: String
+    public var country: String?
+    public var eMail: String?
+    public var homePhone: String?
 }
