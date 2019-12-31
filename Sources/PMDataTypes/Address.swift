@@ -8,13 +8,19 @@
 import Foundation
 
 public struct Address: DataType {
+    public init(id: Id, value: ValueType) {
+        self.id = id
+        self.value = value as! AddressValue
+        
+    }
+    
     public var id: Id
     public var value: AddressValue
     
-    public init(id: Id, value: AddressValue) {
-        self.id = id
-        self.value = value
-    }
+//    public init(id: Id, value: AddressValue) {
+//        self.id = id
+//        self.value = value
+//    }
 }
 
 /** default values just for mocking */

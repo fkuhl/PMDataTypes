@@ -11,9 +11,9 @@ public struct Household: DataType {
     public var id: Id
     public var value: HouseholdValue
     
-    public init(id: Id, value: HouseholdValue) {
+    public init(id: Id, value: ValueType) {
         self.id = id
-        self.value = value
+        self.value = value as! HouseholdValue
     }
 }
 

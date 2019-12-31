@@ -89,9 +89,9 @@ public struct Member: DataType {
     public var id: Id
     public var value: MemberValue
     
-    public init(id: Id, value: MemberValue) {
+    public init(id: Id, value: ValueType) {
         self.id = id
-        self.value = value
+        self.value = value as! MemberValue
     }
 }
 

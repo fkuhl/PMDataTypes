@@ -40,7 +40,11 @@ extension ValueType {
     }
 }
 
-public protocol DataType: Encodable, Decodable {
+public protocol Makable {
+    init(id: Id, value: ValueType)
+}
+
+public protocol DataType: Encodable, Decodable, Makable {
     associatedtype V: ValueType
     
     var id: Id { get set }
