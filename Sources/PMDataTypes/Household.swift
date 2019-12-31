@@ -17,12 +17,14 @@ public struct Household: DataType {
     }
 }
 
+/** default values just for mocking */
 public struct HouseholdValue: ValueType {
     public var head: Id? //this would have to be an error
     public var spouse: Id?
-    public var others: [Id]
+    public var others: [Id] = []
     public var address: Id
     
+    /** just for mocking */
     public init(head: Id, spouse: Id?, others: [Id], address: Id) {
         self.head = head
         self.spouse = spouse

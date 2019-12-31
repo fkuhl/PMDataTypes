@@ -12,13 +12,25 @@ public struct Address: DataType {
     public var value: AddressValue
 }
 
+/** default values just for mocking */
 public struct AddressValue: ValueType {
     public var address: String
-    public var address2: String?
+    public var address2: String? = nil
     public var city: String
     public var state: String?
     public var postalCode: String
-    public var country: String?
-    public var eMail: String?
-    public var homePhone: String?
+    public var country: String? = nil
+    public var eMail: String? = nil
+    public var homePhone: String? = nil
+    
+    /** only for mocking */
+    public init(
+        address: String,
+        city: String,
+        state: String?
+    ) {
+        self.address = address
+        self.city = city
+        self.state = state
+    }
 }

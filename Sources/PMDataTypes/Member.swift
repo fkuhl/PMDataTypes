@@ -88,8 +88,14 @@ public enum MaritalStatus: String, Encodable, Decodable {
 public struct Member: DataType {
     public var id: Id
     public var value: MemberValue
+    
+    public init(id: Id, value: MemberValue) {
+        self.id = id
+        self.value = value
+    }
 }
 
+/** Default values are merely to aid making mock objects. */
 public struct MemberValue: ValueType {
     public var familyName: String
     public var givenName: String
@@ -101,13 +107,13 @@ public struct MemberValue: ValueType {
     public var sex: Sex
     public var dateOfBirth: Date?
     public var placeOfBirth: String?
-    public var status: MemberStatus
-    public var resident: Bool
-    public var exDirectory: Bool
+    public var status: MemberStatus = MemberStatus.COMMUNING
+    public var resident: Bool = true
+    public var exDirectory: Bool = false
     public var household: Id
     public var tempAddress: Id?
-    public var transactions: [Transaction]
-    public var maritalStatus: MaritalStatus
+    public var transactions: [Transaction] = []
+    public var maritalStatus: MaritalStatus = MaritalStatus.MARRIED
     public var spouse: String?
     public var dateOfMarriage: Date?
     public var divorce: String?
@@ -120,8 +126,37 @@ public struct MemberValue: ValueType {
     public var education: String?
     public var employer: String?
     public var baptism: String?
-    public var services: [Service]
-    public var dateLastChanged: Date?
+    public var services: [Service] = []
+    public var dateLastChanged: Date? = nil
+    
+    /** just for mocking */
+    public init(
+        familyName: String,
+        givenName: String,
+        middleName: String?,
+        previousFamilyName: String?,
+        nickName: String?,
+        sex: Sex,
+        household: Id,
+        eMail: String?,
+        mobilePhone: String?,
+        education: String?,
+        employer: String?,
+        baptism: String?
+    ) {
+        self.familyName = familyName
+        self.givenName = givenName
+        self.middleName = middleName
+        self.previousFamilyName = previousFamilyName
+        self.nickName = nickName
+        self.sex = sex
+        self.household = household
+        self.eMail = eMail
+        self.mobilePhone = mobilePhone
+        self.education = education
+        self.employer = employer
+        self.baptism = baptism
+    }
     
     /** A function, not computed property, because a computed property interferes with encoding and decoding. */
     public func fullName() -> String {
