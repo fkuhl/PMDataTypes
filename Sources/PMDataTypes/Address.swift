@@ -28,9 +28,11 @@ public struct AddressValue: ValueType {
         address: String,
         city: String,
         state: String?
+        postalCode: String
     ) {
         self.address = address
         self.city = city
         self.state = state
+        self.postalCode = postalCode
     }
 }
