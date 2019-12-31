@@ -18,7 +18,7 @@ public struct HouseholdValue: ValueType {
     public var others: [Id]
     public var address: Id
     
-    init(head: Id, spouse: Id?, others: [Id], address: Id) {
+    public init(head: Id, spouse: Id?, others: [Id], address: Id) {
         self.head = head
         self.spouse = spouse
         self.others = others
