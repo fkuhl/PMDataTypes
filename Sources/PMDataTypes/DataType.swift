@@ -45,6 +45,4 @@ public protocol DataType: Encodable, Decodable {
     
     var id: Id { get set }
     var value: V { get set }
-    
-    //init(id: Id, value: V)
 }

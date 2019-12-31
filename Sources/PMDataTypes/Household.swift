@@ -17,5 +17,12 @@ public struct HouseholdValue: ValueType {
     public var spouse: Id?
     public var others: [Id]
     public var address: Id
+    
+    init(head: Id, spouse: Id?, others: [Id], address: Id) {
+        self.head = head
+        self.spouse = spouse
+        self.others = others
+        self.address = address
+    }
 }
 
