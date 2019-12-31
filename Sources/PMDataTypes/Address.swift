@@ -27,7 +27,7 @@ public struct AddressValue: ValueType {
     public init(
         address: String,
         city: String,
-        state: String?
+        state: String?,
         postalCode: String
     ) {
         self.address = address
