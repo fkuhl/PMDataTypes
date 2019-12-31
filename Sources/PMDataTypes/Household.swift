@@ -10,6 +10,11 @@ import Foundation
 public struct Household: DataType {
     public var id: Id
     public var value: HouseholdValue
+    
+    public init(id: Id, value: HouseholdValue) {
+        self.id = id
+        self.value = value
+    }
 }
 
 public struct HouseholdValue: ValueType {
