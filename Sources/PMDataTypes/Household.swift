@@ -19,10 +19,10 @@ public struct Household: DataType {
 
 /** default values just for mocking */
 public struct HouseholdValue: ValueType {
-    public var head: Id? //this would have to be an error
+    public var head: Id //data cleaned up enough so this isn't ever nil
     public var spouse: Id?
     public var others: [Id] = []
-    public var address: Id
+    public var address: Id? //nil if address unknown
     
     /** just for mocking */
     public init(head: Id, spouse: Id?, others: [Id], address: Id) {

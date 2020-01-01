@@ -110,7 +110,7 @@ public struct MemberValue: ValueType {
     public var status: MemberStatus = MemberStatus.COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id
+    public var household: Id? //nil if member is DEAD
     public var tempAddress: Id?
     public var transactions: [Transaction] = []
     public var maritalStatus: MaritalStatus = MaritalStatus.MARRIED
