@@ -10,4 +10,9 @@ import Foundation
 public struct ErrorResponse: Codable {
     public let error: String
     public let response: String
+    
+    public init(error: String, response: String) {
+        self.error = error
+        self.response = response
+    }
 }
