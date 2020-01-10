@@ -32,7 +32,7 @@ public let jsonEncoder: JSONEncoder = {
 
 public typealias Id = String
 
-public protocol ValueType: Encodable, Decodable { }
+public protocol ValueType: Codable { }
 
 extension ValueType {
     public func asJSONData() -> Data  {
@@ -44,7 +44,7 @@ public protocol Makable {
     init(id: Id, value: ValueType)
 }
 
-public protocol DataType: Encodable, Decodable, Makable {
+public protocol DataType: Codable, Makable {
     associatedtype V: ValueType
     
     var id: Id { get set }
