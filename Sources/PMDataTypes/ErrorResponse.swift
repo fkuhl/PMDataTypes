@@ -1,12 +1,14 @@
 //
 //  PeriMeleonResponse.swift
-//  pm-http-server
 //
 //  Created by Frederick Kuhl on 9/12/19.
 //
 
 import Foundation
 
+/**
+ Data type returned by pm-http-server to represent an error.
+ */
 public struct ErrorResponse: Codable {
     public let error: String
     public let response: String

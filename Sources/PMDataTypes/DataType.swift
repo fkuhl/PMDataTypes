@@ -1,11 +1,17 @@
 //
 //  DataType.swift
-//  Async
 //
 //  Created by Frederick Kuhl on 11/29/19.
 //
 
 import Foundation
+
+/**
+ The Swift generic supertypes for the data types (Member, Household, Address),
+ and associated operations.
+ "Generic protocol with associated type" is somewhat advanced Swift.
+ Nifty when it works.
+ */
 
 public let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()

@@ -1,13 +1,16 @@
 //
 //  Member.swift
-//  pm-http-server
 //
 //  Created by Frederick Kuhl on 9/12/19.
 //
 
 import Foundation
 
-public enum TransactionType: String, Encodable, Decodable {
+/**
+ A member, communing or noncommuning.
+ */
+
+public enum TransactionType: String, Codable {
     case BIRTH
     case PROFESSION
     case RECEIVED
@@ -21,7 +24,7 @@ public enum TransactionType: String, Encodable, Decodable {
     case DIED
 }
 
-public struct Transaction: Encodable, Decodable {
+public struct Transaction: Codable {
     public var index: Id
     public var date: Date?
     public var type: TransactionType
@@ -30,7 +33,7 @@ public struct Transaction: Encodable, Decodable {
     public var comment: String?
 }
 
-public enum ServiceType: String, Encodable, Decodable {
+public enum ServiceType: String, Codable {
     case ORDAINED_TE
     case ORDAINED_RE
     case ORDAINED_DE
@@ -43,7 +46,7 @@ public enum ServiceType: String, Encodable, Decodable {
     case DEPOSED
 }
 
-public struct Service: Encodable, Decodable {
+public struct Service: Codable {
     public var index: Id
     public var date: Date?
     public var type: ServiceType
@@ -51,12 +54,18 @@ public struct Service: Encodable, Decodable {
     public var comment: String?
 }
 
-public enum Sex: String, Encodable, Decodable {
+public enum Sex: String, Codable {
     case MALE
     case FEMALE
 }
 
-public enum MemberStatus: String, Encodable, Decodable {
+/**
+ In the new system, the status field should not be set directly, but should be derived
+ from the most recently added Transaction.
+ So why maintain it? For backward compatibility: Transactions were a late addition to PM
+ when the need was realized for a time-sequenced series of changes in status.
+ */
+public enum MemberStatus: String, Codable {
     case NONCOMMUNING
     case COMMUNING
     case ASSOCIATE
@@ -79,7 +88,7 @@ public enum MemberStatus: String, Encodable, Decodable {
     }
 }
 
-public enum MaritalStatus: String, Encodable, Decodable {
+public enum MaritalStatus: String, Codable {
     case SINGLE
     case MARRIED
     case DIVORCED

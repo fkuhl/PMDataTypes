@@ -7,6 +7,12 @@
 
 import Foundation
 
+/**
+ Address as used in Household, or for tempAddress in Member.
+ The eMail and homePhone are for an entire household.
+ The phone especially is becoming obsolete as families drop their land lines.
+ */
+
 public struct Address: DataType {
     public init(id: Id, value: ValueType) {
         self.id = id
@@ -16,14 +22,8 @@ public struct Address: DataType {
     
     public var id: Id
     public var value: AddressValue
-    
-//    public init(id: Id, value: AddressValue) {
-//        self.id = id
-//        self.value = value
-//    }
 }
 
-/** default values just for mocking */
 public struct AddressValue: ValueType {
     public var address: String
     public var address2: String? = nil

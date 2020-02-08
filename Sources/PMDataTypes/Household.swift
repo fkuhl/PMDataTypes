@@ -7,6 +7,11 @@
 
 import Foundation
 
+/**
+ A household.
+ As you can see, this structure contains nothing but MongoDB ids.
+ Single persons each have their own household.
+ */
 public struct Household: DataType {
     public var id: Id
     public var value: HouseholdValue
@@ -17,7 +22,6 @@ public struct Household: DataType {
     }
 }
 
-/** default values just for mocking */
 public struct HouseholdValue: ValueType {
     public var head: Id //data cleaned up enough so this isn't ever nil
     public var spouse: Id?
