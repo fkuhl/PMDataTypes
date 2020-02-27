@@ -13,8 +13,8 @@ import Foundation
  */
 
 public struct NewFamilyData: Codable {
-    public var head: MemberValue
-    public var spouse: MemberValue?
-    public var others: [MemberValue]
+    public var head: Member
+    public var spouse: Member?
+    public var others: [Member]
     public var address: Address
 }
