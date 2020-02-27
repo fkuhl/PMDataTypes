@@ -35,7 +35,10 @@ public let jsonEncoder: JSONEncoder = {
     return e
 }()
 
-
+/**
+ This Id is a MongoDB ID in the case of a HouseholdDcoument.
+ In the case of Member or Address, it's the string version of UUID.
+ */
 public typealias Id = String
 
 public protocol ValueType: Codable { }

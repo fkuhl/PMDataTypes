@@ -13,18 +13,7 @@ import Foundation
  The phone especially is becoming obsolete as families drop their land lines.
  */
 
-public struct Address: DataType {
-    public init(id: Id, value: ValueType) {
-        self.id = id
-        self.value = value as! AddressValue
-        
-    }
-    
-    public var id: Id
-    public var value: AddressValue
-}
-
-public struct AddressValue: ValueType {
+public struct Address: Codable {
     public var address: String
     public var address2: String? = nil
     public var city: String

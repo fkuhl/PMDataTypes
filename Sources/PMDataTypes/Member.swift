@@ -94,18 +94,9 @@ public enum MaritalStatus: String, Codable {
     case DIVORCED
 }
 
-public struct Member: DataType {
-    public var id: Id
-    public var value: MemberValue
-    
-    public init(id: Id, value: ValueType) {
-        self.id = id
-        self.value = value as! MemberValue
-    }
-}
-
 /** Default values are merely to aid making mock objects. */
-public struct MemberValue: ValueType {
+public struct Member: Codable {
+    public var id: Id  //UUID, not Mongo
     public var familyName: String
     public var givenName: String
     public var middleName: String?
@@ -119,8 +110,8 @@ public struct MemberValue: ValueType {
     public var status: MemberStatus = MemberStatus.COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id? //nil if member is DEAD
-    public var tempAddress: Id?
+    public var household: Id //DEAD Members belong to Oikia tou patros mou
+    public var tempAddress: Address? //now embedded
     public var transactions: [Transaction] = []
     public var maritalStatus: MaritalStatus = MaritalStatus.MARRIED
     public var spouse: String?
@@ -140,6 +131,7 @@ public struct MemberValue: ValueType {
     
     /** just for mocking */
     public init(
+        id: String,
         familyName: String,
         givenName: String,
         middleName: String?,
@@ -153,6 +145,7 @@ public struct MemberValue: ValueType {
         employer: String?,
         baptism: String?
     ) {
+        self.id = id
         self.familyName = familyName
         self.givenName = givenName
         self.middleName = middleName
