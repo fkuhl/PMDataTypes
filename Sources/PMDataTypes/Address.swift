@@ -15,25 +15,27 @@ import Foundation
  */
 
 public struct Address: Codable {
-    public var address: String
+    public var address: String = ""
     public var address2: String? = nil
-    public var city: String
-    public var state: String?
-    public var postalCode: String
+    public var city: String = ""
+    public var state: String? = nil
+    public var postalCode: String = ""
     public var country: String? = nil
     public var eMail: String? = nil
     public var homePhone: String? = nil
     
+    public init() { }
+    
     /** only for mocking */
-//    public init(
-//        address: String,
-//        city: String,
-//        state: String?,
-//        postalCode: String
-//    ) {
-//        self.address = address
-//        self.city = city
-//        self.state = state
-//        self.postalCode = postalCode
-//    }
+    public init(
+        address: String,
+        city: String,
+        state: String?,
+        postalCode: String
+    ) {
+        self.address = address
+        self.city = city
+        self.state = state
+        self.postalCode = postalCode
+    }
 }
