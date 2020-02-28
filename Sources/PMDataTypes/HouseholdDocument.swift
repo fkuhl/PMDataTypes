@@ -21,8 +21,10 @@ public struct HouseholdDocument: DataType {
 }
 
 public struct HouseholdDocumentValue: ValueType {
-    public var head: Member //data cleaned up enough so this isn't ever nil
-    public var spouse: Member?
+    public var head: Member = Member() //data cleaned up enough so this isn't ever nil
+    public var spouse: Member? = nil
     public var others: [Member] = []
-    public var address: Address? //nil if address unknown
+    public var address: Address? = nil //nil if address unknown
+    
+    public init() { }
 }

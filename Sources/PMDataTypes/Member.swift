@@ -107,66 +107,72 @@ public enum MaritalStatus: String, Codable {
 /** Default values are merely to aid making mock objects. */
 public struct Member: Codable {
     public var id:Id
-    public var familyName: String
-    public var givenName: String
-    public var middleName: String?
-    public var previousFamilyName: String?
-    public var nameSuffix: String?
-    public var title: String?
-    public var nickName: String?
-    public var sex: Sex
-    public var dateOfBirth: Date?
-    public var placeOfBirth: String?
-    public var status: MemberStatus = MemberStatus.COMMUNING
+    public var familyName: String = ""
+    public var givenName: String = ""
+    public var middleName: String? = nil
+    public var previousFamilyName: String? = nil
+    public var nameSuffix: String? = nil
+    public var title: String? = nil
+    public var nickName: String? = nil
+    public var sex: Sex = .MALE
+    public var dateOfBirth: Date? = nil
+    public var placeOfBirth: String? = nil
+    public var status: MemberStatus = .COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id? //nil if member is DEAD
-    public var tempAddress: Address?
+    public var household: Id? = nil //nil if member is DEAD
+    public var tempAddress: Address? = nil
     public var transactions: [Transaction] = []
-    public var maritalStatus: MaritalStatus = MaritalStatus.MARRIED
-    public var spouse: String?
-    public var dateOfMarriage: Date?
-    public var divorce: String?
-    public var father: Id?
-    public var mother: Id?
-    public var eMail: String?
-    public var workEMail: String?
-    public var mobilePhone: String?
-    public var workPhone: String?
-    public var education: String?
-    public var employer: String?
-    public var baptism: String?
+    public var maritalStatus: MaritalStatus = .MARRIED
+    public var spouse: String? = nil
+    public var dateOfMarriage: Date? = nil
+    public var divorce: String? = nil
+    public var father: Id? = nil
+    public var mother: Id? = nil
+    public var eMail: String? = nil
+    public var workEMail: String? = nil
+    public var mobilePhone: String? = nil
+    public var workPhone: String? = nil
+    public var education: String? = nil
+    public var employer: String? = nil
+    public var baptism: String? = nil
     public var services: [Service] = []
     public var dateLastChanged: Date? = nil
     
+    public init() {
+        self.id = UUID().uuidString
+    }
+    
+    
     /** just for mocking */
-//    public init(
-//        familyName: String,
-//        givenName: String,
-//        middleName: String?,
-//        previousFamilyName: String?,
-//        nickName: String?,
-//        sex: Sex,
-//        household: Id,
-//        eMail: String?,
-//        mobilePhone: String?,
-//        education: String?,
-//        employer: String?,
-//        baptism: String?
-//    ) {
-//        self.familyName = familyName
-//        self.givenName = givenName
-//        self.middleName = middleName
-//        self.previousFamilyName = previousFamilyName
-//        self.nickName = nickName
-//        self.sex = sex
-//        self.household = household
-//        self.eMail = eMail
-//        self.mobilePhone = mobilePhone
-//        self.education = education
-//        self.employer = employer
-//        self.baptism = baptism
-//    }
+    public init(
+        familyName: String,
+        givenName: String,
+        middleName: String?,
+        previousFamilyName: String?,
+        nickName: String?,
+        sex: Sex,
+        household: Id,
+        eMail: String?,
+        mobilePhone: String?,
+        education: String?,
+        employer: String?,
+        baptism: String?
+    ) {
+        self.id = UUID().uuidString
+        self.familyName = familyName
+        self.givenName = givenName
+        self.middleName = middleName
+        self.previousFamilyName = previousFamilyName
+        self.nickName = nickName
+        self.sex = sex
+        self.household = household
+        self.eMail = eMail
+        self.mobilePhone = mobilePhone
+        self.education = education
+        self.employer = employer
+        self.baptism = baptism
+    }
     
     /** A function, not computed property, because a computed property interferes with encoding and decoding. */
     public func fullName() -> String {
