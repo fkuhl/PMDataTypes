@@ -8,10 +8,11 @@ import Foundation
 
 /**
  The MongoDB document collections that  contain our data.
+ With denormalized data, there is only one!
  */
 
 public enum CollectionName: String, CaseIterable {
-    case members = "Members"
+//    case members = "Members"
     case households = "Households"
-    case addresses = "Addresses"
+//    case addresses = "Addresses"
 }

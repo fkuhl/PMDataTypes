@@ -94,16 +94,6 @@ public enum MaritalStatus: String, Codable {
     case DIVORCED
 }
 
-//public struct Member: DataType {
-//    public var id: Id
-//    public var value: MemberValue
-//
-//    public init(id: Id, value: ValueType) {
-//        self.id = id
-//        self.value = value as! MemberValue
-//    }
-//}
-
 /** Default values are merely to aid making mock objects. */
 public struct Member: Codable {
     public var id:Id
@@ -180,6 +170,10 @@ public struct Member: Codable {
         let nickContribution = nugatory(nickName) ? "" : " \"\(nickName!)\""
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
         return "\(familyName), \(givenName)\(middleContribution)\(previousContribution)\(nickContribution)"
+    }
+    
+    public func asJSONData() -> Data  {
+        return try! jsonEncoder.encode(self)
     }
 }
 

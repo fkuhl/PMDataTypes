@@ -38,21 +38,21 @@ public let jsonEncoder: JSONEncoder = {
 
 public typealias Id = String
 
-public protocol ValueType: Codable { }
+//public protocol ValueType: Codable { }
 
-extension ValueType {
-    public func asJSONData() -> Data  {
-        return try! jsonEncoder.encode(self)
-    }
-}
+//extension ValueType {
+//    public func asJSONData() -> Data  {
+//        return try! jsonEncoder.encode(self)
+//    }
+//}
+//
+//public protocol Makable {
+//    init(id: Id, value: ValueType)
+//}
 
-public protocol Makable {
-    init(id: Id, value: ValueType)
-}
-
-public protocol DataType: Codable, Makable {
-    associatedtype V: ValueType
-    
-    var id: Id { get set }
-    var value: V { get set }
-}
+//public protocol DataType: Codable, Makable {
+//    associatedtype V: ValueType
+//    
+//    var id: Id { get set }
+//    var value: V { get set }
+//}

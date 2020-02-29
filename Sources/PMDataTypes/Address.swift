@@ -38,4 +38,8 @@ public struct Address: Codable {
         self.state = state
         self.postalCode = postalCode
     }
+    
+    public func asJSONData() -> Data  {
+        return try! jsonEncoder.encode(self)
+    }
 }
