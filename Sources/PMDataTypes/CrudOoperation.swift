@@ -14,6 +14,5 @@ public enum CrudOperation: String {
     case read
     case readAll
     case update
-    case delete
     case drop
 }
