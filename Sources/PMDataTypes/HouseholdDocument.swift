@@ -11,7 +11,7 @@ import Foundation
  Household as represented by a MongoDB document.
  */
 public struct HouseholdDocument: Codable {
-    public var id: Id
+    public var id: Id = ""
     public var head: Member = Member() //data cleaned up enough so this isn't ever nil
     public var spouse: Member? = nil
     public var others: [Member] = []
