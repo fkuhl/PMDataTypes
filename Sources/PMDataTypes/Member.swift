@@ -110,7 +110,7 @@ public struct Member: Codable {
     public var status: MemberStatus = .COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id? = nil //nil if member is DEAD
+    public var household: Id = "" //Even DEAD members have a household if data denormalized
     public var tempAddress: Address? = nil
     public var transactions: [Transaction] = []
     public var maritalStatus: MaritalStatus = .MARRIED
