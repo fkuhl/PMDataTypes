@@ -25,7 +25,7 @@ public enum TransactionType: String, Codable {
 }
 
 public struct Transaction: Codable {
-    public var index: Id
+    public var index: Id?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: TransactionType
     public var authority: String?
@@ -47,7 +47,7 @@ public enum ServiceType: String, Codable {
 }
 
 public struct Service: Codable {
-    public var index: Id
+    public var index: Id?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: ServiceType
     public var place: String?
@@ -96,7 +96,7 @@ public enum MaritalStatus: String, Codable {
 
 /** Default values are merely to aid making mock objects. */
 public struct Member: Codable {
-    public var id:Id
+    public var id: Id
     public var familyName: String = ""
     public var givenName: String = ""
     public var middleName: String? = nil
@@ -110,21 +110,21 @@ public struct Member: Codable {
     public var status: MemberStatus = .COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id = "" //Even DEAD members have a household if data denormalized
+    public var household: Id = "" //Even DEAD members have a household
     public var tempAddress: Address? = nil
     public var transactions: [Transaction] = []
-    public var maritalStatus: MaritalStatus = .MARRIED
+    public var maritalStatus: MaritalStatus = .SINGLE
     public var spouse: String? = nil
     public var dateOfMarriage: Date? = nil
     public var divorce: String? = nil
     public var father: Id? = nil
     public var mother: Id? = nil
     public var eMail: String? = nil
-    public var workEMail: String? = nil
+    public var workEmail: String? = nil
     public var mobilePhone: String? = nil
     public var workPhone: String? = nil
-    public var education: String? = nil
-    public var employer: String? = nil
+    //public var education: String? = nil
+    //public var employer: String? = nil
     public var baptism: String? = nil
     public var services: [Service] = []
     public var dateLastChanged: Date? = nil
@@ -159,8 +159,8 @@ public struct Member: Codable {
         self.household = household
         self.eMail = eMail
         self.mobilePhone = mobilePhone
-        self.education = education
-        self.employer = employer
+        //self.education = education
+        //""self.employer = employer
         self.baptism = baptism
     }
     
@@ -169,7 +169,8 @@ public struct Member: Codable {
         let previousContribution = nugatory(previousFamilyName) ? "" : " (\(previousFamilyName!))"
         let nickContribution = nugatory(nickName) ? "" : " \"\(nickName!)\""
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
-        return "\(familyName), \(givenName)\(middleContribution)\(previousContribution)\(nickContribution)"
+        let suffixContrib = nugatory(nameSuffix) ? "" : " \(nameSuffix!)"
+        return "\(familyName), \(givenName)\(middleContribution)\(suffixContrib)\(previousContribution)\(nickContribution)"
     }
     
     public func asJSONData() -> Data  {

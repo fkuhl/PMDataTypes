@@ -21,7 +21,7 @@ public struct Address: Codable {
     public var state: String? = nil
     public var postalCode: String = ""
     public var country: String? = nil
-    public var eMail: String? = nil
+    public var email: String? = nil
     public var homePhone: String? = nil
     
     public init() { }

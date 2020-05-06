@@ -25,12 +25,14 @@ public let dateFormatter: DateFormatter = {
 public let jsonDecoder: JSONDecoder = {
     let d = JSONDecoder()
     d.dateDecodingStrategy = .formatted(dateFormatter)
+    d.keyDecodingStrategy = .convertFromSnakeCase
     return d
 }()
 
 public let jsonEncoder: JSONEncoder = {
     let e = JSONEncoder()
     e.dateEncodingStrategy = .formatted(dateFormatter)
+    e.keyEncodingStrategy = .convertToSnakeCase
     e.outputFormatting = .prettyPrinted
     return e
 }()
