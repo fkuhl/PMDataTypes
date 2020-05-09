@@ -15,11 +15,11 @@ import Foundation
  */
 
 public struct Address: Codable {
-    public var address: String = ""
+    public var address: String? = ""
     public var address2: String? = nil
-    public var city: String = ""
+    public var city: String? = ""
     public var state: String? = nil
-    public var postalCode: String = ""
+    public var postalCode: String? = ""
     public var country: String? = nil
     public var email: String? = nil
     public var homePhone: String? = nil
