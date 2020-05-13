@@ -164,8 +164,13 @@ public struct Member: Codable {
         self.baptism = baptism
     }
     
+    public func isEmpty() -> Bool {
+        return nugatory(familyName) && nugatory(givenName)
+    }
+    
     /** A function, not computed property, because a computed property interferes with encoding and decoding. */
     public func fullName() -> String {
+        if self.isEmpty() { return "[no value]" }
         let previousContribution = nugatory(previousFamilyName) ? "" : " (\(previousFamilyName!))"
         let nickContribution = nugatory(nickName) ? "" : " \"\(nickName!)\""
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
