@@ -24,7 +24,7 @@ public enum TransactionType: String, Codable {
     case DIED
 }
 
-public struct Transaction: Codable {
+public struct Transaction: Codable, Hashable {
     public var index: Id?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: TransactionType
@@ -46,7 +46,7 @@ public enum ServiceType: String, Codable {
     case DEPOSED
 }
 
-public struct Service: Codable {
+public struct Service: Codable, Hashable {
     public var index: Id?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: ServiceType
