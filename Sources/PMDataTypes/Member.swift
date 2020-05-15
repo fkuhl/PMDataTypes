@@ -183,6 +183,6 @@ public struct Member: Codable {
     }
 }
 
-    fileprivate func nugatory(_ thing: String?) -> Bool {
+    public func nugatory(_ thing: String?) -> Bool {
         return thing == nil || thing == ""
     }
