@@ -100,7 +100,7 @@ public struct Member: Codable {
     public var familyName: String = ""
     public var givenName: String = ""
     public var middleName: String? = nil
-    public var previousFamilyName: String? = nil
+    public var previousFamilyName: String = ""
     public var nameSuffix: String? = nil
     public var title: String? = nil
     public var nickName: String? = nil
