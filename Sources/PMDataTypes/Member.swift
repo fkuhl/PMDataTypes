@@ -139,7 +139,7 @@ public struct Member: Codable {
         familyName: String,
         givenName: String,
         middleName: String?,
-        previousFamilyName: String?,
+        previousFamilyName: String,
         nickName: String?,
         sex: Sex,
         household: Id,
@@ -171,7 +171,7 @@ public struct Member: Codable {
     /** A function, not computed property, because a computed property interferes with encoding and decoding. */
     public func fullName() -> String {
         if self.isEmpty() { return "[no value]" }
-        let previousContribution = nugatory(previousFamilyName) ? "" : " (\(previousFamilyName!))"
+        let previousContribution = nugatory(previousFamilyName) ? "" : " (\(previousFamilyName))"
         let nickContribution = nugatory(nickName) ? "" : " \"\(nickName!)\""
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
         let suffixContrib = nugatory(nameSuffix) ? "" : " \(nameSuffix!)"
