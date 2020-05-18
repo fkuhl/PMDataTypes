@@ -10,7 +10,7 @@ import Foundation
  A member, communing or noncommuning.
  */
 
-public enum TransactionType: String, Codable {
+public enum TransactionType: String, CaseIterable, Codable {
     case BIRTH
     case PROFESSION
     case RECEIVED
@@ -33,7 +33,7 @@ public struct Transaction: Codable, Hashable {
     public var comment: String?
 }
 
-public enum ServiceType: String, Codable {
+public enum ServiceType: String, CaseIterable, Codable {
     case ORDAINED_TE
     case ORDAINED_RE
     case ORDAINED_DE
@@ -54,7 +54,7 @@ public struct Service: Codable, Hashable {
     public var comment: String?
 }
 
-public enum Sex: String, Codable {
+public enum Sex: String, CaseIterable, Codable {
     case MALE
     case FEMALE
 }
@@ -65,7 +65,7 @@ public enum Sex: String, Codable {
  So why maintain it? For backward compatibility: Transactions were a late addition to PM
  when the need was realized for a time-sequenced series of changes in status.
  */
-public enum MemberStatus: String, Codable {
+public enum MemberStatus: String, CaseIterable, Codable {
     case NONCOMMUNING
     case COMMUNING
     case ASSOCIATE
