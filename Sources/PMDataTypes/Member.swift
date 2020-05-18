@@ -88,7 +88,7 @@ public enum MemberStatus: String, CaseIterable, Codable {
     }
 }
 
-public enum MaritalStatus: String, Codable {
+public enum MaritalStatus: String, CaseIterable, Codable {
     case SINGLE
     case MARRIED
     case DIVORCED
