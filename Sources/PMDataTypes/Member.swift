@@ -105,12 +105,32 @@ public struct Member: Codable {
         set { middleName = newValue }
     }
     public var previousFamilyName: String? = nil
+    public var previousFamilyNameU: String {
+        get { previousFamilyName ?? "" }
+        set { previousFamilyName = newValue }
+    }
     public var nameSuffix: String? = nil
+    public var nameSuffixU: String {
+        get { nameSuffix ?? "" }
+        set { nameSuffix = newValue }
+    }
     public var title: String? = nil
+    public var titleU: String {
+        get { title ?? "" }
+        set { title = newValue }
+    }
     public var nickName: String? = nil
+    public var nickNameU: String {
+        get { nickName ?? "" }
+        set { nickName = newValue }
+    }
     public var sex: Sex = .MALE
     public var dateOfBirth: Date? = nil
     public var placeOfBirth: String? = nil
+    public var placeOfBirthU: String {
+        get { placeOfBirth ?? "" }
+        set { placeOfBirth = newValue }
+    }
     public var status: MemberStatus = .COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
@@ -119,17 +139,45 @@ public struct Member: Codable {
     public var transactions: [Transaction] = []
     public var maritalStatus: MaritalStatus = .SINGLE
     public var spouse: String? = nil
+    public var spouseU: String {
+        get { spouse ?? "" }
+        set { spouse = newValue }
+    }
     public var dateOfMarriage: Date? = nil
     public var divorce: String? = nil
+    public var divorceU: String {
+        get { divorce ?? "" }
+        set { divorce = newValue }
+    }
     public var father: Id? = nil
     public var mother: Id? = nil
     public var eMail: String? = nil
+    public var eMailU: String {
+        get { eMail ?? "" }
+        set { eMail = newValue }
+    }
     public var workEmail: String? = nil
+    public var workEmailU: String {
+        get { workEmail ?? "" }
+        set { workEmail = newValue }
+    }
     public var mobilePhone: String? = nil
+    public var mobilePhoneU: String {
+        get { mobilePhone ?? "" }
+        set { mobilePhone = newValue }
+    }
     public var workPhone: String? = nil
+    public var workPhoneU: String {
+        get { workPhone ?? "" }
+        set { workPhone = newValue }
+    }
     //public var education: String? = nil
     //public var employer: String? = nil
     public var baptism: String? = nil
+    public var baptismU: String {
+        get { baptism ?? "" }
+        set { baptism = newValue }
+    }
     public var services: [Service] = []
     public var dateLastChanged: Date? = nil
     
