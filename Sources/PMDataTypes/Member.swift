@@ -100,6 +100,10 @@ public struct Member: Codable {
     public var familyName: String = ""
     public var givenName: String = ""
     public var middleName: String? = nil
+    public var middleNameU: String {
+        get { middleName ?? "" }
+        set { middleName = newValue }
+    }
     public var previousFamilyName: String? = nil
     public var nameSuffix: String? = nil
     public var title: String? = nil
