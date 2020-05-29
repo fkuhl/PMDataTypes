@@ -31,6 +31,10 @@ public struct Transaction: Codable, Hashable {
     public var authority: String?
     public var church: String?
     public var comment: String?
+    
+    public init() {
+        self.type = .BIRTH
+    }
 }
 
 public enum ServiceType: String, CaseIterable, Codable {
@@ -52,6 +56,10 @@ public struct Service: Codable, Hashable {
     public var type: ServiceType
     public var place: String?
     public var comment: String?
+    
+    public init() {
+        self.type = .ORDAINED_DE
+    }
 }
 
 public enum Sex: String, CaseIterable, Codable {
