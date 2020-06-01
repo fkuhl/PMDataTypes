@@ -50,3 +50,11 @@ public extension String {
 public func nugatory(_ thing: String?) -> Bool {
     return thing?.isBlank ?? true
 }
+
+public func dateForDisplay(_ date: Date?) -> String {
+    if let date = date {
+        return dateFormatter.string(from: date)
+    } else {
+        return "[none]"
+    }
+}

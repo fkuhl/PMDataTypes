@@ -43,13 +43,14 @@ public struct Address: Codable {
         return try! jsonEncoder.encode(self)
     }
 
-    public func addressForDisplay(_ addr: Address) -> String {
-        let cityContrib = nugatory(addr.city) ? "" : " / \(addr.city ?? "")"
-        let stateContrib = nugatory(addr.state) ? "" : ", \(addr.state ?? "")"
-        return "\(addr.address ?? "")\(cityContrib)\(stateContrib)"
+    public func addressForDisplay() -> String {
+        let cityContrib = nugatory(self.city) ? "" : " / \(self.city ?? "")"
+        let stateContrib = nugatory(self.state) ? "" : ", \(self.state ?? "")"
+        return "\(self.address ?? "")\(cityContrib)\(stateContrib)"
     }
     
 }
+
 public func nugatory(_ thing: Address?) -> Bool {
     if thing == nil { return true }
     return nugatory(thing!.address) && nugatory(thing!.city) && nugatory(thing!.state)
