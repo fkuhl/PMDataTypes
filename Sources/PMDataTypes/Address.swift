@@ -49,7 +49,8 @@ public struct Address: Codable {
         return "\(addr.address ?? "")\(cityContrib)\(stateContrib)"
     }
     
-    public func isBlank() -> Bool {
-        return nugatory(self.address) && nugatory(self.city) && nugatory(self.state)
-    }
+}
+public func nugatory(_ thing: Address?) -> Bool {
+    if thing == nil { return true }
+    return nugatory(thing!.address) && nugatory(thing!.city) && nugatory(thing!.state)
 }
