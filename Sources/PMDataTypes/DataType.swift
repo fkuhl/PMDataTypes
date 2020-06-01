@@ -41,3 +41,12 @@ public let jsonEncoder: JSONEncoder = {
 
 public typealias Id = String
 
+public extension String {
+  var isBlank: Bool {
+    return allSatisfy({ $0.isWhitespace })
+  }
+}
+
+public func nugatory(_ thing: String?) -> Bool {
+    return thing?.isBlank ?? true
+}

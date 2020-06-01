@@ -190,7 +190,3 @@ public struct Member: Codable {
         return try! jsonEncoder.encode(self)
     }
 }
-
-    public func nugatory(_ thing: String?) -> Bool {
-        return thing == nil || thing == ""
-    }
