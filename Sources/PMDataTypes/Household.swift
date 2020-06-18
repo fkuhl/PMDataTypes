@@ -19,6 +19,19 @@ public struct Household: Codable {
     
     public init() { }
     
+    /**
+     Just for mocking.
+     */
+    public init(id: Id,
+                head: Member,
+                spouse: Member? = nil,
+                address: Address? = nil) {
+        self.id = id
+        self.head = head
+        self.spouse = spouse
+        self.address = address
+    }
+    
     public func asJSONData() -> Data  {
         return try! jsonEncoder.encode(self)
     }
