@@ -111,7 +111,7 @@ public struct Member: Codable {
     public var previousFamilyName: String? = nil
     public var nameSuffix: String? = nil
     public var title: String? = nil
-    public var nickName: String? = nil
+    public var nickname: String? = nil
     public var sex: Sex = .MALE
     public var dateOfBirth: Date? = nil
     public var placeOfBirth: String? = nil
@@ -160,7 +160,7 @@ public struct Member: Codable {
         self.givenName = givenName
         self.middleName = middleName
         self.previousFamilyName = previousFamilyName
-        self.nickName = nickName
+        self.nickname = nickName
         self.sex = sex
         self.household = household
         self.eMail = eMail
@@ -178,14 +178,14 @@ public struct Member: Codable {
     public func fullName() -> String {
         if self.isEmpty() { return "[no value]" }
         let previousContribution = nugatory(previousFamilyName) ? "" : " (\(previousFamilyName!))"
-        let nickContribution = nugatory(nickName) ? "" : " \"\(nickName!)\""
+        let nickContribution = nugatory(nickname) ? "" : " \"\(nickname!)\""
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
         let suffixContrib = nugatory(nameSuffix) ? "" : " \(nameSuffix!)"
         return "\(familyName), \(givenName)\(middleContribution)\(suffixContrib)\(previousContribution)\(nickContribution)"
     }
     
     public func displayName() -> String {
-        let givenContrib = nugatory(nickName) ? givenName : nickName
+        let givenContrib = nugatory(nickname) ? givenName : nickname
         return "\(familyName), \(givenContrib ?? "[no given name]")"
     }
     
