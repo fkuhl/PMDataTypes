@@ -148,7 +148,7 @@ public struct Member: Codable {
         givenName: String,
         middleName: String?,
         previousFamilyName: String,
-        nickName: String?,
+        nickname: String?,
         sex: Sex,
         household: Id,
         eMail: String?,
@@ -160,7 +160,7 @@ public struct Member: Codable {
         self.givenName = givenName
         self.middleName = middleName
         self.previousFamilyName = previousFamilyName
-        self.nickname = nickName
+        self.nickname = nickname
         self.sex = sex
         self.household = household
         self.eMail = eMail
