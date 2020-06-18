@@ -153,8 +153,6 @@ public struct Member: Codable {
         household: Id,
         eMail: String?,
         mobilePhone: String?,
-        education: String?,
-        employer: String?,
         baptism: String?
     ) {
         self.id = UUID().uuidString
@@ -184,6 +182,11 @@ public struct Member: Codable {
         let middleContribution = nugatory(middleName) ? "" : " \(middleName!)"
         let suffixContrib = nugatory(nameSuffix) ? "" : " \(nameSuffix!)"
         return "\(familyName), \(givenName)\(middleContribution)\(suffixContrib)\(previousContribution)\(nickContribution)"
+    }
+    
+    public func displayName() -> String {
+        let givenContrib = nugatory(nickName) ? givenName : nickName
+        return "\(familyName), \(givenContrib ?? "[no given name]")"
     }
     
     public func asJSONData() -> Data  {
