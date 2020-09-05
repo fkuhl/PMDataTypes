@@ -33,7 +33,7 @@ public let jsonDecoder: JSONDecoder = {
 public let jsonEncoder: JSONEncoder = {
     let e = JSONEncoder()
     e.dateEncodingStrategy = .formatted(dateFormatter)
-    e.keyEncodingStrategy = .convertToSnakeCase
+    //e.keyEncodingStrategy = .convertToSnakeCase
     e.outputFormatting = .prettyPrinted
     return e
 }()
