@@ -184,9 +184,18 @@ public struct Member: Codable {
         return "\(familyName), \(givenName)\(middleContribution)\(suffixContrib)\(previousContribution)\(nickContribution)"
     }
     
+    /**
+        Horry, or Horatio
+     */
+    public func firstName() -> String {
+        nugatory(nickname) ? givenName : nickname!
+    }
+    
+    /**
+     Hornswoggle, Horry
+     */
     public func displayName() -> String {
-        let givenContrib = nugatory(nickname) ? givenName : nickname
-        return "\(familyName), \(givenContrib ?? "[no given name]")"
+        "\(familyName), \(firstName())"
     }
     
     public func asJSONData() -> Data  {
