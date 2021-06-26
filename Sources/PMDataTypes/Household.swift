@@ -10,8 +10,8 @@ import Foundation
 /**
  Household as represented by a MongoDB document.
  */
-public struct Household: Codable {
-    public var id: Id = ""
+public struct Household: Codable, Identifiable {
+    public var id: ID = ""
     public var head: Member = Member() //data cleaned up enough so this isn't ever nil
     public var spouse: Member? = nil
     public var others: [Member] = []
@@ -22,7 +22,7 @@ public struct Household: Codable {
     /**
      Just for mocking.
      */
-    public init(id: Id,
+    public init(id: ID,
                 head: Member,
                 spouse: Member? = nil,
                 address: Address? = nil) {

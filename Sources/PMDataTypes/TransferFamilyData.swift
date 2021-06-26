@@ -11,7 +11,7 @@ import Foundation
  Data need to transfer a family.
  */
 public struct TransferFamilyData: Codable {
-    public var household: Id
+    public var household: ID
     public var date: Date
     public var type: TransactionType
     public var authority: String?

@@ -39,7 +39,7 @@ public let jsonEncoder: JSONEncoder = {
 }()
 
 
-public typealias Id = String
+public typealias ID = String
 
 public extension String {
   var isBlank: Bool {

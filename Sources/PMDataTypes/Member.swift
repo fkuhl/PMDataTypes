@@ -25,7 +25,7 @@ public enum TransactionType: String, CaseIterable, Codable {
 }
 
 public struct Transaction: Codable, Hashable {
-    public var index: Id?  //irrelevant artifact of Java PM?
+    public var index: ID?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: TransactionType
     public var authority: String?
@@ -51,7 +51,7 @@ public enum ServiceType: String, CaseIterable, Codable {
 }
 
 public struct Service: Codable, Hashable {
-    public var index: Id?  //irrelevant artifact of Java PM?
+    public var index: ID?  //irrelevant artifact of Java PM?
     public var date: Date?
     public var type: ServiceType
     public var place: String?
@@ -103,8 +103,8 @@ public enum MaritalStatus: String, CaseIterable, Codable {
 }
 
 /** Default values are merely to aid making mock objects. */
-public struct Member: Codable {
-    public var id: Id
+public struct Member: Codable, Identifiable {
+    public var id: ID
     public var familyName: String = ""
     public var givenName: String = ""
     public var middleName: String? = nil
@@ -118,15 +118,15 @@ public struct Member: Codable {
     public var status: MemberStatus = .COMMUNING
     public var resident: Bool = true
     public var exDirectory: Bool = false
-    public var household: Id = "" //Even DEAD members have a household
+    public var household: ID = "" //Even DEAD members have a household
     public var tempAddress: Address? = nil
     public var transactions: [Transaction] = []
     public var maritalStatus: MaritalStatus = .SINGLE
     public var spouse: String? = nil
     public var dateOfMarriage: Date? = nil
     public var divorce: String? = nil
-    public var father: Id? = nil
-    public var mother: Id? = nil
+    public var father: ID? = nil
+    public var mother: ID? = nil
     public var eMail: String? = nil
     public var workEmail: String? = nil
     public var mobilePhone: String? = nil
@@ -150,7 +150,7 @@ public struct Member: Codable {
         previousFamilyName: String,
         nickname: String?,
         sex: Sex,
-        household: Id,
+        household: ID,
         eMail: String?,
         mobilePhone: String?,
         baptism: String?
